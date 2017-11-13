@@ -53,10 +53,12 @@ print "num_test: ", num_test
 test_res = np.array(w.T * X_data - r)
 test_res = np.squeeze(test_res.T, axis = 1)
 
+print test_res
+
 correct_count = 0
 test_color = []
 for i in range(0, num_test):
-    if test_res[i] * test_label[i] > 0:
+    if test_res[i] * test_label[i] < 0:
         correct_count += 1
     if test_label[i] < 0:
         test_color.append('b')
